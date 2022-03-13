@@ -13,6 +13,9 @@ class Reservation extends CI_Model
         $this->db->query($query);
     }
     public function getLastReservation(){
-        $query = "select max(id) from reservation"
+        $sql = "select max(id) from reservation";
+        $query = $this->db->query($sql);
+        
+
     }
 }

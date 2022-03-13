@@ -9,12 +9,12 @@ class ReservationController extends CI_Controller
         $this->load->model('vaccin');
         $this->load->model('maladiechronique');
         $data["centres"] = $this->centre->getCentres();
-        $data["vaccins"] = $this->vaccin->getVaccins();
+        $data["vaccins"] = $this->vaccin->getAllVaccin();
         $data["maladies"] = $this->maladiechronique->getAllMaladie();
 
-        $data["view"] = "reservation.php";
+        $data["view"] = "reservation";
 
-        $this->load->view('welcome_message', $data);
+        $this->load->view('template', $data);
     }
     public function insertReservation()
     {
