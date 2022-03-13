@@ -15,5 +15,11 @@ class MaladieChronique extends CI_Model{
         }
         return $retour;
     }
+    public function insertMaladies($idReservation,$idMaladies){
+        for($i=0;$i<count($idMaladies);$i++){
+            $query = "insert into reservation values (null," . $idReservation . "," . $idMaladies[$i] . ")";
+            $this->db->query($query);
+        }
+    }
 }
 ?>
