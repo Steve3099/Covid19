@@ -66,10 +66,7 @@
                     <li><a href="index.html">Dashboard</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-edit"></i> Reservation <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="index.html">Dashboard</a></li>
-                  </ul>
+                <li><a><i class="fa fa-edit"></i> Reservation </span></a>
                 </li>
               </ul>
             </div>

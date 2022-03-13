@@ -82,10 +82,27 @@ CREATE TABLE VaccinCentre(
 
 CREATE TABLE Reservation(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom varchar(40),
+    prenom varchar(40),
+    dateNaissance DATE,
+    cin varchar (60),
+    sexe varchar(1),
+    numero varchar(40),
+    adresse varchar(50),
+    mail varchar(20),
     idCentre INTEGER,
     idVaccin INTEGER,
     date DATE
 );
+
+create table ReservationMaladie(
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idReservation INTEGER,
+    idMaladieChronique integer
+);
+
+alter table ReservationMaladie add foreign key (idReservation) references Reservation(id);
+alter table ReservationMaladie add foreign key (idMaladieChronique) references MaladieChronique(id);
 
 ALTER TABLE Vaccination ADD foreign key (idPersonne) references Personne(id);
 ALTER TABLE Vaccination ADD foreign key (idVaccin) references Vaccin(id);
@@ -98,6 +115,7 @@ ALTER TABLE VaccinCentre ADD foreign key (idCentre) references Centre(id);
 ALTER TABLE VaccinCentre ADD foreign key (idVaccin) references Vaccin(id);
 ALTER TABLE Reservation ADD foreign key (idCentre) references Centre(id);
 ALTER TABLE Reservation ADD foreign key (idVaccin) references Vaccin(id);
+
 
 ALTER TABLE ResultatVaccination ADD foreign key (idVaccination) references Vaccination(id);
 
