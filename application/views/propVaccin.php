@@ -27,7 +27,7 @@
                                         <div>
                                             <input type="hidden" value="aucun" name="maladie[]">
                                                 <?php foreach($maladie as $mal) { ?>
-                                                    <input type="checkbox" name="maladie[]" value="<?php echo $mal['id']; ?>"><label ><?php echo $mal['label']; ?></label>
+                                                    <input type="checkbox" class="flat" name="maladie[]" value="<?php echo $mal['id']; ?>"><label ><?php echo $mal['label']; ?></label>
                                                 <?php } ?>
                                         </div>   
                                     </div>
