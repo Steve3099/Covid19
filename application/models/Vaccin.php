@@ -23,7 +23,7 @@ class Vaccin extends CI_Model
         {
             if($ci['idVaccin']==$vaccin['id'])
             {
-                if($ci['idMaladieChronique'] == $maladie['id'])
+                if($ci['idMaladieChronique'] == $maladie)
                 {
                     return true;
                 }
@@ -60,9 +60,17 @@ class Vaccin extends CI_Model
         return $retour;
     }
 
-    public function controlAge($age)
+    public function searchVaccin($age,$listeMaladie)
     {
-        if($age < 0)
+        $listeVaccin=array();
+        $count = 0;
+        $i=0;
+        
+        if(empty($age))
+        {
+            return "veuillez renseigner le champ age ";
+        }
+        else if($age < 0)
         {
             return "veuillez entrer une valeur positive";
         }
@@ -70,36 +78,26 @@ class Vaccin extends CI_Model
         {
             return "veuillez entrer une valeur inférieure à 110";
         }
-        return true;
-    }
-
-    public function searchVaccin($age,$listeMaladie)
-    {
-        $listeVaccin=array();
-        $count = 0;
-        $i=0;
-        if($this->controlAge($age))
+        if($age < 18)
         {
-            if($age < 18)
+            return "Se faire vacciner est déconseillé pour les personnes ayant moins de 18ans";
+        }
+        else
+        {
+            $listeVaccinParMaladie = $this->checkVaccin($listeMaladie);
+            foreach($listeVaccinParMaladie as $vaccinParMaladie)
             {
-                return "Se faire vacciner est déconseillé pour les personnes ayant moins de 18ans";
-            }
-            else
-            {
-                $listeVaccinParMaladie = $this->checkVaccin($listeMaladie);
-                foreach($listeVaccinParMaladie as $vaccinParMaladie)
+                if($vaccinParMaladie['nombre']==0)
                 {
-                    if($vaccinParMaladie['nombre']==0)
-                    {
-                        $count++;
-                    }
-                    else
-                    {
-                        $listeVaccin[$i]['message'] = "Déconseillé";
-                    }
-                    $listeVaccin[$i]['vaccin'] = $vaccinParMaladie['vaccin'];
-                    $i++;
+                    $count++;
+                    $listeVaccin[$i]['message']="";
                 }
+                else
+                {
+                    $listeVaccin[$i]['message'] = "Déconseillé";
+                }
+                $listeVaccin[$i]['vaccin'] = $vaccinParMaladie['vaccin'];
+                $i++;
             }
         }
         return $listeVaccin;
