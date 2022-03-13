@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="<?php echo site_url("assets/images/favicon.ico") ?>" type="image/ico" />
+  <link rel="icon" href="<?php echo site_url("assets/images/vaccin.png") ?>" type="image/ico" />
 
   <title>Vaccin </title>
 
@@ -37,7 +37,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Vaccination </span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-empire"></i> <span>Vaccination </span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -45,11 +45,11 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="<?php echo site_url("assets/images/img.jpg") ?>" alt="..." class="img-circle profile_img">
+              <img src="<?php echo site_url("assets/images/vaccin.png") ?>" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span></span>
-              <h2>Logo</h2>
+              <h2>Covid 19 </h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -101,51 +101,7 @@
             <a id="menu_toggle"><i class="fa fa-bars"></i></a>
           </div>
           <nav class="nav navbar-nav">
-            <ul class=" navbar-right">
-              <li class="nav-item dropdown open" style="padding-left: 15px;">
-                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="<?php echo site_url("assets/images/img.jpg") ?>" alt="">John Doe
-                </a>
-                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="javascript:;"> Profile</a>
-                  <a class="dropdown-item" href="javascript:;">
-                    <span class="badge bg-red pull-right">50%</span>
-                    <span>Settings</span>
-                  </a>
-                  <a class="dropdown-item" href="javascript:;">Help</a>
-                  <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-                </div>
-              </li>
-
-              <li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                  <li class="nav-item">
-                    <a class="dropdown-item">
-                      <span class="image"><img src="<?php echo site_url("assets/images/img.jpg") ?>" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="text-center">
-                      <a class="dropdown-item">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            
           </nav>
         </div>
       </div>
