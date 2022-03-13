@@ -102,5 +102,30 @@ class Vaccin extends CI_Model
         }
         return $listeVaccin;
     }
+
+    public function getVaccinByCentre($idCentre)
+    {
+        $retour = array();
+        $sql = "select * from centreVaccin where idCentre=".$idCentre;
+        $query = $this->db->query($sql);
+        $i = 0;
+        foreach($query -> result_array() as $row)
+        {
+            $retour[$i] = $row;
+            $i++;
+        }
+        return $retour;
+    }
+    public function getCentreWithVaccin(){
+        $this->load->model('centre');
+        $centres = $this->centre->getCentres();
+        $centresVaccin = array();
+        for($i=0;$i<count($centres);$i++){
+            $vaccinsByCentre = $this->getVaccinByCentre($centres[$i]['id']);
+            $centresVaccin[$i]['nomCentre']=$centres[$i]['label'];
+            $centresVaccin[$i]['nomVaccin']=$vaccinsByCentre;
+        }
+        return $centresVaccin;
+    }
 }
 ?>

@@ -62,12 +62,12 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a href="<?php echo base_url("StatistiqueController") ?>"><i class="fa fa-bar-chart-o"></i>   Statistiques </a>
-                </li>
+                </li> 
                 <li><a href="<?php echo base_url("ReservationController") ?>"><i class="fa fa-edit"></i> Reservation</a>
                 </li>
-                <li> <a href="<?php echo base_url("VaccinController") ?>"> Proposition</a>
+                <li> <a href="<?php echo base_url("VaccinController") ?>"><i class="fa fa-search-plus"></i> Proposition</a>
                 </li>
-                <li> <a href="<?php echo base_url("CentreController") ?>"><i class="fa fa-hospital"></i> Liste des centres</a>
+                <li> <a href="<?php echo base_url("CentreController") ?>"><i class="fa fa-university"></i> Liste des centres</a>
                 </li>
               </ul>
             </div>
