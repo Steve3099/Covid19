@@ -131,20 +131,20 @@
               </div>
               <div class="x_content">
                 <h4>App Usage across versions</h4>
-                <?php for($i=0;$i<count($vacMort);$i++) { ?>
+                <?php for($i=0;$i<count($vacMarary);$i++) { ?>
                 <div class="widget_summary">
                   <div class="w_left w_25">
-                    <span>0.1.5.2</span>
+                    <span><?php echo $vacMarary[$i]['label']; ?></span>
                   </div>
                   <div class="w_center w_55">
                     <div class="progress">
-                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $vacMarary[$i]['nbr']; ?>%;">
                         <span class="sr-only">60% Complete</span>
                       </div>
                     </div>
                   </div>
                   <div class="w_right w_20">
-                    <span><?php echo $vacMort[$i]['nbr']; ?></span>
+                    <span><?php echo $vacMarary[$i]['nbr']; ?></span>
                   </div>
                   <div class="clearfix"></div>
                 </div>
