@@ -119,6 +119,9 @@ ALTER TABLE Reservation ADD foreign key (idVaccin) references Vaccin(id);
 
 ALTER TABLE ResultatVaccination ADD foreign key (idVaccination) references Vaccination(id);
 
+
+
+
 create or replace view nombreVaccine as select count(*) as nbr from Personne p join Vaccination v on v.idPersonne = p.id;
 
 create or replace view nombreParVaccin as

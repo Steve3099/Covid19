@@ -69,7 +69,22 @@ CREATE TABLE Vaccination(
      resultat VARCHAR(20)
  );
 
-<<<<<<< Updated upstream
+
+ CREATE TABLE Centre(
+     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     label VARCHAR(50),
+     region VARCHAR(50),
+     district VARCHAR(50)
+ );
+
+ CREATE TABLE VaccinCentre(
+     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     idCentre INTEGER,
+     idVaccin INTEGER
+ );
+
+
+
 CREATE TABLE Reservation(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nom varchar(40),
@@ -84,28 +99,6 @@ CREATE TABLE Reservation(
     idVaccin INTEGER,
     date DATE
 );
-=======
- CREATE TABLE Centre(
-     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     label VARCHAR(50),
-     region VARCHAR(50),
-     district VARCHAR(50)
- );
-
- CREATE TABLE VaccinCentre(
-     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     idCentre INTEGER,
-     idVaccin INTEGER
- );
-
- CREATE TABLE Reservation(
-     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-     idCentre INTEGER,
-     idVaccin INTEGER,
-     date DATE
- );
->>>>>>> Stashed changes
-
 create table ReservationMaladie(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idReservation INTEGER,
@@ -1764,3 +1757,378 @@ VALUES
   (298,17,"2000-03-06",5),
   (299,21,"1996-07-23",5),
   (300,44,"1995-05-29",6);
+
+
+
+
+
+
+
+
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (1,"Alexander Mitchell","Aphrodite Robinson","1994-07-06","30606","f","(458) 199-5795","P.O. Box 695, 4079 Nulla Rd.","in.magna@protonmail.couk",58,8,"2021-04-21"),
+  (2,"Shelley Montoya","Murphy Simmons","1998-12-20","96443","m","1-245-583-9301","885-4921 Tincidunt Ave","accumsan.neque@aol.com",17,6,"2021-09-11"),
+  (3,"Clarke Barnett","Kitra Moore","1998-11-12","966446","m","1-895-646-5554","P.O. Box 839, 9429 Nullam St.","vulputate@yahoo.ca",64,5,"2022-03-05"),
+  (4,"Prescott Rivera","Emi Hickman","2001-03-08","9524 IU","m","(424) 547-6242","Ap #367-2361 Nunc Road","erat.semper.rutrum@outlook.couk",95,2,"2023-01-09"),
+  (5,"Priscilla Rodgers","Randall Cross","1995-04-04","22831-416","m","(427) 222-5436","535-2856 In St.","donec.nibh@outlook.org",2,7,"2022-11-20"),
+  (6,"Vladimir Noel","Thor Sargent","1999-07-12","600944","f","(747) 734-3701","P.O. Box 844, 6291 Sed St.","praesent@google.ca",99,7,"2021-10-01"),
+  (7,"Gage Hahn","Carlos Pope","1998-12-22","27186","f","1-938-412-8439","P.O. Box 137, 3875 Vestibulum St.","amet.luctus@google.org",23,8,"2022-09-17"),
+  (8,"Imogene Carey","Andrew Kim","1998-06-23","6176","f","(767) 467-1314","4596 Ac Road","ad.litora@icloud.edu",46,7,"2022-04-09"),
+  (9,"Emma Dale","Adele Goodman","1998-11-13","354960","f","(531) 561-3844","622-7171 Rutrum, Rd.","enim.etiam@protonmail.net",3,5,"2021-04-10"),
+  (10,"Noble Ayala","Cara Rogers","2000-05-26","8756","f","1-331-392-1213","P.O. Box 846, 2283 Elit. Rd.","morbi.neque@google.couk",61,8,"2021-12-29");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (11,"Zahir Green","Theodore Watkins","1995-06-16","95261","m","1-183-545-4167","P.O. Box 808, 9142 Orci. Rd.","vitae.diam.proin@icloud.edu",31,5,"2021-08-18"),
+  (12,"Cameron Pugh","Elton Blevins","1995-06-25","291263","m","1-329-452-2778","2716 Mauris Avenue","duis.at@aol.ca",42,8,"2023-03-10"),
+  (13,"Abel Douglas","Colton Guy","1996-12-27","4824-1647","f","1-317-752-2114","127-7441 Aenean Av.","luctus.aliquet@outlook.net",7,9,"2022-10-27"),
+  (14,"Winter Knowles","Kermit Heath","2000-03-29","828323","m","1-557-836-0480","Ap #601-2871 Eu, Street","lorem.ipsum@yahoo.com",27,2,"2022-02-17"),
+  (15,"Amal Hendricks","Emily Vaughan","1994-06-08","758213","m","(342) 378-6642","777-3982 Quisque St.","auctor.nunc@hotmail.net",89,8,"2021-03-15"),
+  (16,"Danielle May","Aretha Dejesus","1999-02-10","7876","m","(868) 761-6289","Ap #309-9877 Felis St.","libero@icloud.couk",98,5,"2022-01-18"),
+  (17,"Hakeem Romero","Clementine May","2000-07-26","56-172","m","(725) 323-9593","Ap #424-2296 Magna. Ave","tristique.aliquet.phasellus@icloud.couk",15,6,"2022-03-12"),
+  (18,"Paul O'donnell","Bree Hunt","1995-11-07","3052","m","(834) 282-2758","166-8914 Pede. Av.","nam@google.org",56,6,"2021-05-11"),
+  (19,"Galena Ramirez","Jaquelyn Schwartz","1996-07-12","84705-63984","m","(370) 526-1807","6986 Sem. Rd.","a@aol.net",80,8,"2022-09-12"),
+  (20,"Drew Faulkner","Kylie Pickett","2000-04-25","C9A 2Z5","m","(631) 723-6172","699-4201 Tincidunt Ave","orci.sem.eget@outlook.com",59,3,"2022-01-29");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (21,"Acton Blackwell","Ruby Clark","1996-10-10","30512","m","(248) 840-7491","106-3452 Consequat St.","sit.amet@aol.edu",11,8,"2022-02-15"),
+  (22,"Walter Carrillo","Britanney Farley","1994-04-07","605098","m","(737) 845-3735","259-6165 Id Avenue","adipiscing.enim@icloud.net",66,8,"2021-07-11"),
+  (23,"Brent Burgess","Vielka Morales","1995-05-09","8374","f","(542) 726-4239","910-1034 Ipsum. Road","cursus@yahoo.edu",71,3,"2023-02-05"),
+  (24,"Roth Beasley","Beatrice Berger","1996-04-27","15425","m","(650) 592-4531","927-1780 Eu Avenue","nec.mauris.blandit@aol.org",9,6,"2021-10-04"),
+  (25,"Kamal Duffy","Austin Ryan","1998-11-24","41006","m","(131) 621-6839","421-3971 Aliquet Road","donec.est.nunc@icloud.org",55,2,"2022-07-20"),
+  (26,"Zahir Newton","Pascale Cotton","1998-05-04","34023","m","1-236-535-2130","Ap #156-6222 Nunc Street","mauris.eu@aol.org",50,9,"2022-03-22"),
+  (27,"Clarke Brock","Alec Rocha","2000-09-16","33881","m","(981) 585-1179","590-4454 Faucibus Rd.","auctor.vitae.aliquet@protonmail.couk",59,10,"2021-12-26"),
+  (28,"Grant Carver","Holly Barron","1994-12-06","5883-1156","f","(204) 481-3467","Ap #613-2268 Pede, Rd.","nam.ac@icloud.edu",25,7,"2021-07-27"),
+  (29,"Briar Ortega","Willow Gilbert","1998-07-07","3883-7604","m","1-342-683-0066","786 Urna Avenue","cursus.non@icloud.edu",21,7,"2022-11-08"),
+  (30,"Alden Hensley","Chelsea Gordon","2000-05-28","66-534","f","1-922-246-9562","532-1602 Tempus St.","at.risus@yahoo.com",83,6,"2022-02-11");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (31,"Ferris Nguyen","Leigh Pratt","2000-09-12","686811","m","1-611-349-4885","Ap #989-9404 Pharetra. St.","augue.scelerisque@icloud.couk",70,9,"2021-09-22"),
+  (32,"Hu Colon","Emerald Love","1996-01-16","534932","m","(277) 446-4310","Ap #634-1488 Nunc Av.","placerat.cras@google.net",8,5,"2023-03-13"),
+  (33,"Winter Goodman","Ray Collier","1999-01-15","B49 3HR","m","1-211-671-5152","464-9809 Ornare. Av.","sit@icloud.net",93,8,"2022-02-02"),
+  (34,"Zeus English","Neil Mcintosh","1996-02-19","100689","f","1-853-668-2821","849-2648 Maecenas Avenue","vivamus.sit@protonmail.net",82,4,"2022-07-01"),
+  (35,"Winter Goodwin","Clayton Sampson","1999-05-13","4822","f","(633) 847-8461","613-1124 Erat St.","ut.nec@icloud.edu",47,6,"2021-09-21"),
+  (36,"Howard Terry","Chanda William","1995-03-24","16912","m","1-796-243-4324","734 Ante. Ave","arcu.vel@protonmail.net",72,10,"2021-06-23"),
+  (37,"Shelly Fernandez","Jade Phelps","1997-08-01","983793","f","1-675-452-3381","P.O. Box 552, 1552 Eu, Avenue","natoque.penatibus.et@outlook.ca",38,3,"2021-12-23"),
+  (38,"Clayton Mcpherson","Hedley Allen","1997-02-01","6504","m","(773) 334-1010","772-1783 Rutrum Street","turpis.nec@hotmail.ca",48,6,"2022-09-09"),
+  (39,"Kyla Pope","Fulton Weber","1996-07-07","51202","m","(459) 899-5334","1897 Mus. Street","nunc.mauris.sapien@google.ca",45,2,"2023-02-01"),
+  (40,"Lawrence Berger","Iris Lane","1998-08-17","82961","m","(155) 226-3286","Ap #910-6503 Tellus, Ave","ac.urna@hotmail.net",48,9,"2022-10-18");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (41,"Emerson Trujillo","Harrison Klein","2000-10-19","ZR8 3OF","m","(611) 445-8589","582 Nascetur Av.","libero.morbi@aol.com",65,3,"2022-04-27"),
+  (42,"Hyacinth Strong","Anjolie Macdonald","2000-01-31","8650","m","(455) 766-7764","1465 Imperdiet Street","metus.in@outlook.edu",92,2,"2022-03-10"),
+  (43,"Renee Anthony","Anjolie Fisher","1997-04-01","72013-17468","m","(100) 338-2702","Ap #974-1610 Non, Rd.","vestibulum@yahoo.couk",90,1,"2021-08-18"),
+  (44,"Aaron Franklin","Catherine Cole","2000-10-22","87710","f","1-782-828-8584","384-1202 Interdum. Rd.","pede.cras@outlook.couk",70,9,"2021-05-14"),
+  (45,"Lionel Harding","Malcolm Dillard","1997-04-17","21140","m","1-265-585-4594","Ap #403-3890 Vestibulum, St.","suspendisse.sed@protonmail.edu",69,5,"2022-04-03"),
+  (46,"Darryl Guy","Denton Yang","1997-08-09","5693","f","(338) 214-1504","Ap #395-8957 Lobortis Ave","mollis@protonmail.ca",7,10,"2021-06-25"),
+  (47,"Phoebe Day","Aline Williamson","1995-11-15","42548","m","1-701-849-7044","677-9517 Dignissim St.","ridiculus@google.edu",58,8,"2021-03-30"),
+  (48,"Nehru Montoya","Geraldine Nieves","1998-03-02","287212","f","1-662-266-9984","815-8119 Vulputate, Rd.","odio.aliquam@aol.net",92,6,"2022-06-17"),
+  (49,"Porter Barber","Belle Castro","1995-09-01","83512","m","(176) 685-6367","281-9616 Tempor Rd.","at.libero@hotmail.couk",20,3,"2023-01-23"),
+  (50,"Ezra Sweet","Hedda Battle","2001-01-07","862214","f","(842) 336-6523","422-5741 In Rd.","mauris.sit@icloud.edu",37,10,"2022-03-02");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (51,"Roth Santana","Richard Dunn","1997-12-15","88712","f","(521) 678-5148","489-1296 Torquent Road","nibh.aliquam.ornare@yahoo.org",3,7,"2021-12-20"),
+  (52,"Gil Landry","Dolan Harrington","1997-12-18","70654","f","1-328-918-4382","295-8614 Aliquam St.","nullam.lobortis@icloud.couk",64,8,"2022-03-06"),
+  (53,"Dai Wagner","Brenden Hammond","1995-02-08","J20 6FR","m","1-343-245-6148","478-8224 Luctus Ave","elit@icloud.com",31,3,"2022-04-21"),
+  (54,"Mara Frazier","Rachel Manning","2000-12-27","72057","f","(177) 293-1320","590-3215 Donec Avenue","proin.non.massa@outlook.com",39,8,"2022-03-03"),
+  (55,"Odysseus Bush","Barbara Hale","1996-10-22","3485","f","(228) 649-7178","8629 Lobortis Ave","nunc.commodo@hotmail.couk",47,3,"2022-08-28"),
+  (56,"Dale Lancaster","Valentine Woodard","2000-08-20","452442","m","(788) 775-9441","570-3683 Volutpat. St.","sem@outlook.ca",87,10,"2021-04-21"),
+  (57,"Timothy Burt","Mohammad Baird","2000-12-17","433259","f","1-319-255-1577","877-8344 Pretium Road","luctus.vulputate@aol.com",99,1,"2022-08-10"),
+  (58,"Grace Allison","Dorian Tyson","1998-08-17","71988","f","(508) 850-3599","Ap #342-9821 Ut, Avenue","elit@outlook.com",95,1,"2022-12-09"),
+  (59,"Edward Waller","Anne King","2001-03-11","412175","f","(616) 961-5717","567-6275 Fusce St.","arcu.sed.et@hotmail.com",84,10,"2023-01-20"),
+  (60,"Maite Juarez","Shannon Parker","2000-04-21","566912","f","1-571-258-7472","Ap #572-9079 A Av.","nonummy@icloud.ca",87,4,"2021-07-04");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (61,"Amal Lawson","Reed Holland","1999-03-05","27856","m","1-745-678-5122","422 Ultrices. Street","tincidunt@aol.net",39,7,"2021-08-09"),
+  (62,"Emerson Paul","Lane Joyner","1998-03-18","623572","f","(938) 640-6023","P.O. Box 527, 5445 Ornare Av.","neque@aol.net",32,2,"2021-08-11"),
+  (63,"Connor Buck","Jamalia Waller","1995-03-15","880817","m","1-917-238-5239","P.O. Box 592, 5701 Odio. Ave","quam.elementum.at@outlook.edu",56,5,"2023-01-02"),
+  (64,"Ima Lynch","Bevis Middleton","1995-05-30","736283","m","(541) 346-6154","192-1975 Sapien. Road","quam.vel@protonmail.edu",35,4,"2021-04-26"),
+  (65,"Sasha Guthrie","Noel Lucas","1995-03-01","8232","m","(927) 440-4836","663 Sollicitudin Rd.","ut.nec@google.net",51,3,"2022-10-17"),
+  (66,"Keegan Thompson","Talon Osborn","1999-02-28","634381","m","(889) 276-8157","Ap #210-8818 Lectus Road","egestas@hotmail.net",73,5,"2023-01-31"),
+  (67,"Aileen Carrillo","Hashim Hebert","1998-01-23","5152","m","1-766-721-3048","464-9901 Convallis St.","magnis.dis@yahoo.couk",28,2,"2023-03-13"),
+  (68,"Wayne Wilkins","Chester Potts","1996-07-02","67292-846","m","(747) 870-6774","Ap #806-9169 Porttitor Avenue","ligula@icloud.net",34,5,"2023-02-04"),
+  (69,"Berk Wilder","Piper Shaffer","1994-06-27","343831","m","(850) 476-8870","P.O. Box 840, 4394 Neque. Rd.","donec.nibh@outlook.com",73,5,"2021-05-05"),
+  (70,"Medge Vance","Karleigh Cantrell","2001-01-11","84-632","m","(724) 317-7521","Ap #904-242 Ligula St.","adipiscing@hotmail.org",52,5,"2022-05-02");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (71,"Kyle Palmer","Edward Bonner","1995-08-01","63-928","m","1-189-742-6695","Ap #574-4198 Hymenaeos. St.","ornare.lectus.ante@aol.net",74,9,"2022-10-08"),
+  (72,"Tate Duke","Kaseem Daugherty","1997-07-22","63764","f","1-282-908-7126","Ap #396-8124 Sit Ave","primis@icloud.edu",72,6,"2022-10-16"),
+  (73,"Keegan Watson","Madaline Clemons","1994-08-30","486175","m","(561) 521-2403","Ap #612-9266 Hymenaeos. Avenue","diam@hotmail.com",90,9,"2022-05-26"),
+  (74,"Geoffrey Aguilar","Ray Rodriquez","2000-06-22","54048","f","(258) 296-8856","Ap #553-4607 Mus. Rd.","aliquet.lobortis.nisi@hotmail.net",25,4,"2022-02-19"),
+  (75,"Amethyst Day","Cooper Bruce","1997-09-11","50115","m","(626) 468-8142","P.O. Box 695, 2995 Cursus. St.","et@hotmail.edu",79,5,"2022-09-26"),
+  (76,"Axel Pierce","Jaden Bentley","1997-03-12","28163","m","(261) 358-7571","400-2130 Fermentum Av.","vulputate@google.ca",54,3,"2022-08-03"),
+  (77,"Nell Guerrero","Inez Griffith","1996-07-08","6024-8272","m","(625) 895-1382","P.O. Box 869, 2429 Auctor Rd.","nec@aol.net",35,8,"2022-08-02"),
+  (78,"Nichole Walsh","Darius Weaver","2000-09-12","216013","m","1-339-366-6476","4644 Cursus Street","quam@aol.org",83,1,"2022-12-11"),
+  (79,"Quinlan Pruitt","Shelly Kramer","1997-10-24","66126","m","(943) 957-1372","Ap #446-4727 Nunc Road","vitae.diam@outlook.edu",99,3,"2021-08-18"),
+  (80,"Grace Horne","Jonas Robertson","1994-08-26","509622","m","1-855-969-1337","1119 Porttitor Avenue","in.sodales@outlook.com",49,5,"2022-03-19");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (81,"Maile Lloyd","Kimberley Finch","2000-05-16","4435","f","(566) 886-3955","9935 Orci, Av.","orci.donec@hotmail.org",98,5,"2022-06-26"),
+  (82,"Alvin Drake","Hunter Warren","1997-03-13","32197","m","1-958-826-3502","Ap #599-1777 Lacus. Road","sed.nunc@hotmail.com",80,5,"2022-06-17"),
+  (83,"Kasper Giles","Keith Ewing","1994-10-08","623262","f","1-277-651-7724","P.O. Box 963, 6265 Vitae Ave","elit.a@protonmail.couk",78,9,"2021-06-30"),
+  (84,"Adara Clark","Sara Gross","2000-05-02","78-25","m","(365) 493-4080","P.O. Box 827, 7298 Quis Avenue","nulla.at@yahoo.edu",22,6,"2023-01-31"),
+  (85,"Sylvia Savage","Guinevere Davis","1995-01-02","78-69","m","1-471-538-9643","Ap #585-1786 Quisque Rd.","felis.orci.adipiscing@google.edu",31,3,"2022-10-13"),
+  (86,"Tashya Callahan","Kelsey Whitley","1999-11-08","FQ6 2RD","f","(321) 466-6648","297-7791 Pharetra St.","nullam.suscipit.est@hotmail.edu",36,8,"2022-04-04"),
+  (87,"Darius Strong","Virginia Holland","1999-06-13","38-83","f","1-436-238-5675","483-4261 Purus St.","aliquet@outlook.edu",38,8,"2022-02-17"),
+  (88,"Shea Schroeder","Barry Barnett","1996-02-19","84-070","m","1-218-258-9324","596-6299 Aliquam Rd.","nec@outlook.com",67,6,"2021-09-26"),
+  (89,"Gwendolyn Salas","Jordan Nichols","1998-05-21","707152","f","1-413-819-1557","3149 Interdum St.","pede.cum.sociis@outlook.net",95,8,"2021-05-12"),
+  (90,"Sophia Donovan","Amir Cochran","1998-05-21","3663","f","(250) 487-4337","949-5046 Vel, Rd.","tempor@google.couk",89,5,"2022-08-14");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (91,"Maxine Moore","September Williams","1995-10-12","45462","m","(860) 568-9663","Ap #179-7018 Libero Av.","et.ipsum@protonmail.net",68,9,"2022-02-22"),
+  (92,"Logan Burton","Hamish Robles","1999-09-13","06-329","f","1-745-701-7752","322-8133 Aliquet Street","fringilla.est@icloud.org",35,2,"2021-11-07"),
+  (93,"Austin Bowen","Wyatt Newman","1994-09-18","31784","m","(985) 543-5601","P.O. Box 639, 937 At, Avenue","tortor.dictum@outlook.net",34,7,"2022-11-26"),
+  (94,"Helen Rowe","Natalie Mejia","1999-01-13","67089","f","1-470-853-8836","876-4116 Rutrum Avenue","sollicitudin.commodo@protonmail.edu",10,2,"2021-07-26"),
+  (95,"Laura Terry","Lillian Hooper","1999-06-18","46772-37642","m","1-596-528-2924","443-9754 Diam Street","magna.tellus@yahoo.net",52,4,"2021-03-23"),
+  (96,"Kenneth Jacobs","Tiger Huff","1995-05-11","84641","f","(477) 248-1273","806-4149 Eu, St.","ultrices.mauris@google.couk",62,9,"2021-04-20"),
+  (97,"Charles Tate","Ginger Day","1994-12-27","0391","m","(694) 857-3972","Ap #415-2875 Quis, Road","felis.adipiscing.fringilla@google.com",91,2,"2022-07-25"),
+  (98,"Jerome Burke","Sonya Murphy","1996-07-03","78722","m","(504) 631-5173","4195 Inceptos Avenue","adipiscing@yahoo.edu",11,7,"2021-04-30"),
+  (99,"Lucian Carr","Kasimir Castaneda","1998-07-24","986124","m","(562) 936-3717","940-1862 Euismod St.","risus.morbi.metus@icloud.com",66,6,"2021-06-04"),
+  (100,"Jena Fowler","Alexander Davidson","1995-09-19","25239","f","(532) 723-8945","Ap #160-6510 Neque. St.","interdum@icloud.ca",19,5,"2022-05-06");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (101,"Shafira Davidson","Orla Garrett","1995-08-20","58651-727","f","(922) 636-5364","450-2398 Sociis Street","maecenas.malesuada@yahoo.couk",30,7,"2021-09-11"),
+  (102,"Merritt King","Bell Browning","1994-07-17","26316","m","1-175-382-2878","P.O. Box 916, 7979 Pede Road","rhoncus.id@aol.ca",8,8,"2022-08-08"),
+  (103,"Harrison Dickson","Keith Knapp","1996-01-11","35384","m","(451) 955-5537","930-3724 A Street","sed.turpis@yahoo.net",51,2,"2021-06-16"),
+  (104,"Arsenio Hodges","John Osborne","1999-04-30","218253","f","(206) 432-1617","P.O. Box 109, 7683 Eu, St.","semper.pretium@yahoo.edu",94,9,"2022-08-03"),
+  (105,"Clare Browning","Kevyn Blevins","1996-05-22","421524","m","1-218-321-0442","P.O. Box 321, 1771 Enim. Rd.","consectetuer.rhoncus@outlook.org",95,8,"2022-02-17"),
+  (106,"Laith Murray","Jessica Branch","1998-02-20","3970","m","(241) 343-4161","121 Eros Rd.","felis@google.edu",43,7,"2022-10-07"),
+  (107,"Amaya Holloway","Kuame Duran","1997-10-10","H97 4RU","f","1-836-217-7323","Ap #892-4955 Ac, Street","in@icloud.com",48,5,"2021-11-14"),
+  (108,"Leo Dorsey","Idola Terrell","1996-12-28","632405","m","(984) 245-2821","6874 Sit Rd.","dolor.fusce@aol.com",36,6,"2022-05-03"),
+  (109,"Samantha Castaneda","Ivan Wallace","1997-10-30","54727","m","(836) 983-2474","Ap #808-7644 In Ave","blandit.nam.nulla@outlook.com",98,10,"2021-12-30"),
+  (110,"Sylvia Guzman","Clementine Finley","1998-07-28","51310","m","(968) 449-2763","P.O. Box 695, 1188 Interdum. Road","litora.torquent@yahoo.edu",7,10,"2022-01-01");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (111,"Britanni Schroeder","Boris Sanchez","2000-06-15","J3 4UQ","m","1-427-283-2309","P.O. Box 757, 7356 Magna. Rd.","mi@outlook.net",48,4,"2022-05-10"),
+  (112,"Halee Robertson","Brooke Matthews","1994-09-29","3872","m","(924) 888-9859","1473 Fringilla Rd.","mauris.elit@google.couk",96,7,"2022-01-17"),
+  (113,"Nomlanga Gardner","Ruth Parrish","1998-02-08","4235","f","1-130-972-7813","828-9171 Iaculis, St.","laoreet@yahoo.edu",80,5,"2022-01-26"),
+  (114,"Kieran Bird","Oren Marquez","2000-08-24","22837","m","1-284-915-5408","Ap #212-6568 Pretium Road","nulla@icloud.ca",9,7,"2022-08-15"),
+  (115,"Maisie Hale","Rinah Christensen","1997-01-27","20378","m","(288) 785-4451","Ap #739-7333 Nisi Ave","morbi.quis.urna@icloud.net",13,2,"2021-04-08"),
+  (116,"Edward Murphy","Sara Wilder","1999-08-01","572352","f","(177) 341-7992","Ap #394-4386 Ut Av.","orci.sem@protonmail.net",19,7,"2023-02-04"),
+  (117,"Haviva Page","Illana Conway","1999-11-24","S2E 1S8","f","(664) 492-8493","960-3132 Montes, Rd.","quis.diam@yahoo.com",2,4,"2021-03-15"),
+  (118,"Lesley Sellers","Gareth Medina","1999-12-02","32766","m","1-747-598-7973","Ap #107-6406 Phasellus Rd.","vitae.risus@aol.net",21,8,"2021-06-05"),
+  (119,"Sean Meadows","Suki Chase","2000-04-19","Y68 6JD","f","(224) 467-9423","Ap #304-4784 Arcu. St.","vitae.erat.vivamus@outlook.couk",99,7,"2022-01-29"),
+  (120,"Aphrodite Carter","Randall Cooke","1998-04-30","10926","m","(746) 832-8536","508-9900 Eget Road","nullam@outlook.ca",23,3,"2022-12-17");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (121,"Ann Dennis","Allegra Rowe","2000-12-06","30704","m","1-714-137-2357","861-2250 Eleifend, Road","nec.urna@protonmail.ca",32,4,"2021-12-25"),
+  (122,"Hadley Hampton","Paula Huff","1997-05-27","4123","f","(406) 375-0218","P.O. Box 922, 661 Rhoncus Avenue","in.consequat@icloud.org",21,7,"2022-08-25"),
+  (123,"Brenda Hurley","Wilma Barr","1996-02-23","75-243","m","(305) 489-0306","Ap #236-3368 Feugiat. Avenue","nulla.eu.neque@icloud.ca",74,1,"2022-03-23"),
+  (124,"Isaac West","Lysandra Meyers","1994-06-08","50557","m","1-760-311-6413","594-2578 Lobortis Avenue","dui.fusce@protonmail.couk",79,6,"2022-02-24"),
+  (125,"Nelle Sexton","Yoshio Jacobs","1999-07-25","05962","m","1-341-458-5526","2054 Ac Street","diam@yahoo.com",65,8,"2021-10-08"),
+  (126,"Bryar Tyler","Sonia Dodson","1995-06-02","311608","f","1-871-236-8159","Ap #368-9958 Convallis Rd.","libero@hotmail.ca",66,4,"2021-06-26"),
+  (127,"Jelani Cunningham","Curran Parker","1999-07-15","424765","m","1-187-503-2347","747-8983 Nunc St.","a.feugiat@protonmail.couk",78,7,"2021-11-23"),
+  (128,"Amber Heath","Brett Combs","1995-07-11","ER7 5RK","m","(496) 878-8174","Ap #728-969 Ante Av.","nisi.nibh@protonmail.com",4,5,"2021-04-25"),
+  (129,"Ciaran Gamble","Aphrodite Bond","1997-04-01","2062","f","(384) 227-5771","117-7929 Aliquam Road","curae.phasellus.ornare@protonmail.couk",4,7,"2021-12-13"),
+  (130,"Dorian Griffith","Gil Horton","1996-11-21","23864","m","(273) 254-1814","599-5846 Odio Road","tempor.erat.neque@protonmail.com",55,2,"2021-04-25");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (131,"Quon Burgess","Aaron Powell","1998-10-19","6418-8117","f","1-647-473-5924","135-4528 Magna Rd.","dui.nec@yahoo.edu",9,6,"2022-12-21"),
+  (132,"Erasmus Mclean","Seth Ferrell","1996-05-23","57-82","f","1-873-710-3260","922-1539 Tempus St.","felis.nulla.tempor@google.net",88,6,"2021-05-16"),
+  (133,"Fay Morse","Fredericka Downs","1994-08-31","S5A 5L5","f","1-481-583-7172","Ap #344-7188 Id, Road","mauris@icloud.com",90,3,"2023-03-01"),
+  (134,"Charissa Watson","Mollie Prince","1994-10-22","65621","f","1-892-711-8198","798-7071 Libero St.","commodo@icloud.org",57,3,"2021-05-19"),
+  (135,"Velma Calderon","Kareem Armstrong","2000-03-21","3522","f","(639) 732-3682","9774 Commodo Av.","risus.in.mi@protonmail.couk",86,8,"2023-02-13"),
+  (136,"Nyssa Hays","Felix Burton","1997-12-23","5229","f","(474) 652-1168","P.O. Box 516, 2265 Eu Ave","faucibus.id@aol.com",40,4,"2021-07-05"),
+  (137,"Macey Vargas","Amery Fitzgerald","1996-02-18","66-46","f","(277) 728-7274","P.O. Box 147, 8157 Molestie Rd.","ridiculus.mus@aol.ca",82,6,"2022-12-29"),
+  (138,"Yuli Spears","Chloe Ramirez","1998-08-12","40100","m","(366) 664-3327","8874 Scelerisque, Rd.","dis.parturient@aol.org",89,6,"2023-01-03"),
+  (139,"Uriel Rush","Sade Hoffman","1996-07-03","66520","f","(292) 184-3474","906-3094 Massa. Av.","mi@yahoo.org",3,8,"2021-05-22"),
+  (140,"Piper Pope","Kelsie Bowen","1996-11-09","343212","f","1-838-475-1753","638 Aenean St.","nulla.integer@google.net",3,9,"2023-01-17");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (141,"Eagan Riddle","Carol Garcia","1997-11-21","699171","f","(580) 816-3521","P.O. Box 172, 1904 Ornare Street","nibh.vulputate@hotmail.edu",70,1,"2022-04-19"),
+  (142,"Zachery Sanford","Bernard Burris","1995-11-14","733474","m","(667) 583-3226","787-7822 Aliquam Road","facilisis@outlook.com",42,7,"2021-08-22"),
+  (143,"Chaney Holden","Ulla Morales","1994-06-10","43647","m","(356) 356-2424","Ap #696-392 A Av.","iaculis.enim.sit@outlook.couk",71,2,"2022-04-11"),
+  (144,"Allistair Beck","Jaquelyn Kelly","2000-09-30","0327","m","(665) 303-3958","266-128 Nunc Av.","a@hotmail.edu",74,2,"2021-12-26"),
+  (145,"Jasper Garcia","Chase Bass","1998-10-26","44112-576","m","1-294-314-5832","P.O. Box 913, 8388 Quam. Rd.","sed@aol.edu",92,5,"2023-01-07"),
+  (146,"Carter Hodges","Nita Bray","1998-05-11","25642","f","1-877-737-9376","Ap #271-8953 Elementum St.","dolor.quam.elementum@protonmail.ca",3,9,"2022-03-28"),
+  (147,"Clayton Velez","Driscoll Padilla","1999-06-10","438653","m","(374) 357-5866","973-9783 Venenatis Street","tempor@outlook.org",11,8,"2021-04-28"),
+  (148,"Cedric Flowers","Stuart Gallegos","1997-08-10","2134-1685","m","(318) 599-6344","512-2726 Mattis St.","lobortis@yahoo.org",85,3,"2022-12-31"),
+  (149,"Keane Case","Alfonso Wilkinson","1999-11-06","601029","f","(501) 433-8022","980-491 Duis Road","consectetuer.mauris.id@hotmail.ca",50,3,"2023-02-07"),
+  (150,"Hayes Pace","Marny Barrett","1995-06-05","627451","m","(202) 626-5058","P.O. Box 713, 9851 Consequat St.","nunc.lectus.pede@yahoo.com",48,1,"2021-06-02");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (151,"Candice Fernandez","Rooney Higgins","1999-10-21","270572","f","(748) 261-6434","Ap #388-2582 Dui Av.","ipsum.donec@icloud.com",94,4,"2022-10-01"),
+  (152,"Chaim Spence","Norman Lynch","2000-07-30","391311","f","(591) 278-9318","Ap #904-2525 Donec St.","elit.fermentum.risus@aol.ca",36,8,"2021-09-13"),
+  (153,"Aimee Bentley","Kasimir Berg","1997-12-13","8647","f","(898) 673-8858","Ap #256-5393 Mi, Rd.","vel.est.tempor@protonmail.ca",66,9,"2022-07-13"),
+  (154,"Latifah Lyons","Martina Salas","1996-03-09","30204","m","1-518-874-5755","P.O. Box 474, 1184 In St.","at.velit.cras@aol.ca",4,1,"2022-11-16"),
+  (155,"Vernon Harper","Lynn Perkins","1996-02-03","605055","m","1-472-844-4642","Ap #646-9349 Dictum Avenue","id.sapien@aol.org",87,4,"2022-04-25"),
+  (156,"Ursula Mooney","Chase Joyner","1994-05-27","878931","f","1-667-264-1017","Ap #757-4349 Ornare Rd.","ante@hotmail.edu",31,10,"2022-11-29"),
+  (157,"Bruno Powell","Shafira Booth","2000-02-20","46134","m","(476) 637-5498","P.O. Box 446, 1294 Egestas Road","sodales@outlook.org",8,2,"2022-09-16"),
+  (158,"Cade Howe","Kyra Hughes","2001-03-11","97827","f","1-697-812-2825","Ap #962-9981 Donec Av.","ipsum@google.edu",71,3,"2022-12-03"),
+  (159,"Otto Cole","Sheila Woodward","1999-08-02","7629-5280","m","1-135-584-2863","261-8547 Mauris St.","fusce.diam@protonmail.com",48,9,"2022-04-22"),
+  (160,"Teegan Ross","Clarke Walter","1997-07-18","23056","f","1-718-851-7855","8124 Pellentesque, Avenue","ac.turpis@protonmail.org",66,9,"2021-04-30");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (161,"Shad Mullen","Jeanette Duke","1994-07-20","1654 CF","m","1-727-421-4157","870-210 Imperdiet Ave","in.dolor.fusce@yahoo.net",37,4,"2021-11-29"),
+  (162,"Castor Aguilar","Ria Keith","1997-05-20","9743","f","(641) 735-3425","948-2709 Et Av.","condimentum.donec@outlook.edu",20,6,"2022-03-25"),
+  (163,"Claire Burton","Warren Farley","1995-12-29","487935","m","(658) 215-5695","Ap #813-4177 Elit St.","eu@outlook.net",42,6,"2021-10-23"),
+  (164,"Martena Pena","Tyler Sears","1998-02-12","33743","f","1-320-937-1858","1009 Quis Road","mollis.phasellus@outlook.org",91,9,"2022-03-03"),
+  (165,"Wang Mcclain","Yuri Delaney","2000-01-22","3473","f","(116) 719-1779","2350 Tempus, St.","posuere.at@outlook.ca",80,7,"2021-08-03"),
+  (166,"Cyrus Noble","Lucius Knox","1998-04-10","6388","f","(566) 978-7358","813-9230 Nunc. St.","luctus.curabitur@hotmail.ca",50,10,"2022-04-21"),
+  (167,"Joelle Fitzgerald","Charissa Cox","1994-04-26","259327","m","(798) 317-7295","5677 Mauris St.","tempor.est@google.net",37,7,"2021-07-03"),
+  (168,"Xantha Mullins","Mark Wall","1999-03-01","5133","m","(749) 823-6588","208-3620 Hendrerit Rd.","placerat.velit@yahoo.couk",24,7,"2022-07-24"),
+  (169,"Steven Gonzalez","Sebastian Bridges","1998-07-29","74753-941","m","1-782-514-0117","304-150 Arcu. Rd.","elit.a@icloud.com",32,2,"2022-09-13"),
+  (170,"Armando Medina","Oleg Becker","1995-05-30","62898","m","1-455-491-9887","8083 Vitae Rd.","imperdiet.ullamcorper@yahoo.org",21,4,"2021-10-26");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (171,"Dominique Good","Dorothy Lancaster","2000-08-05","4557","m","1-111-637-9529","3697 Sed, Avenue","dapibus.gravida@icloud.org",81,10,"2021-11-14"),
+  (172,"Chantale Woods","Mary Fitzpatrick","1998-12-04","141575","f","(373) 106-4734","Ap #448-6414 Orci St.","in.ornare@yahoo.couk",55,6,"2023-01-31"),
+  (173,"Tatum Mcmahon","Colby Adkins","1999-05-30","T8E 5H2","m","1-232-824-7832","P.O. Box 925, 2290 Cras St.","nisl.quisque@google.ca",1,10,"2023-01-21"),
+  (174,"Noelani Moss","Halla Tucker","1999-10-03","45459","m","1-562-260-5703","P.O. Box 555, 2360 Vitae Road","erat.volutpat@hotmail.couk",46,6,"2023-03-07"),
+  (175,"Vincent Acosta","Ivan Mendoza","1999-01-06","3283","m","(913) 512-9484","431-9158 Sit Ave","urna.suscipit@protonmail.com",49,5,"2022-01-18"),
+  (176,"Keaton Harrington","Lucian Castillo","2000-05-22","91241","m","1-457-375-2664","6485 Venenatis Rd.","conubia.nostra.per@yahoo.net",14,4,"2022-06-12"),
+  (177,"Ebony Campos","Georgia Shaw","1997-12-25","815222","f","(142) 535-6907","426-3217 Fusce St.","sed.sapien@google.net",58,9,"2022-05-08"),
+  (178,"Fulton Conner","Irma Allen","1995-01-16","4063","f","(415) 394-3684","4287 A, Rd.","ullamcorper.nisl@yahoo.net",23,10,"2022-03-09"),
+  (179,"Fallon Mcclure","Demetria Ball","1999-01-09","79739-46370","f","(186) 443-7721","Ap #263-842 Vehicula St.","duis.a@hotmail.couk",46,9,"2021-08-04"),
+  (180,"Cole Chan","Jayme Owens","1995-04-26","4707","f","(438) 747-8614","902-7553 Velit. St.","nibh.donec@aol.couk",27,6,"2021-03-22");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (181,"Colby Jacobs","Britanni Foreman","1998-08-25","2453-2974","m","(774) 795-2141","9430 Vivamus Rd.","molestie.dapibus@aol.ca",32,4,"2021-06-03"),
+  (182,"Chaney Bridges","Quinn Duke","1996-12-18","9172","m","(859) 774-4851","540-7069 Ridiculus St.","quis.tristique@icloud.edu",91,7,"2021-11-22"),
+  (183,"Farrah Kramer","McKenzie Rice","1999-04-12","545790","m","1-243-920-1963","8342 Eu Road","risus.in@hotmail.ca",20,4,"2021-04-09"),
+  (184,"Camille Saunders","Aladdin Miles","1994-03-18","574131","f","1-586-685-3336","636-3852 Aliquam Road","sociis.natoque@google.com",40,3,"2022-04-08"),
+  (185,"Herrod Frank","Ivy Andrews","1997-11-29","61628-80018","f","1-205-457-4184","461-2301 Sodales Street","urna.nec@protonmail.couk",87,6,"2022-04-01"),
+  (186,"Nigel Chan","Malcolm Adams","1996-06-15","46831","m","(811) 880-8754","Ap #832-225 Fusce Street","molestie@icloud.edu",64,10,"2021-11-21"),
+  (187,"Louis Munoz","Paki Shelton","1999-10-13","412225","m","1-571-335-2903","P.O. Box 797, 7510 Aliquam Street","vehicula.risus@yahoo.net",39,5,"2021-07-02"),
+  (188,"Colt Vaughn","India Puckett","1995-11-07","5641 YJ","m","(266) 866-8171","Ap #323-1978 Pretium St.","mauris@aol.edu",16,5,"2022-10-14"),
+  (189,"Rosalyn Cunningham","Barbara Jimenez","1994-04-12","88563","m","1-298-743-0235","176-9223 Eu, Road","ac.fermentum@aol.com",10,6,"2021-08-28"),
+  (190,"Asher Nguyen","Jenette Roberson","1996-02-20","2645","m","(566) 521-3563","8535 Nunc St.","quam@protonmail.org",69,5,"2022-12-24");
+INSERT INTO reservation (id,nom,prenom,dateNaissance,cin,sexe,numero,adresse,email,idCentre,idVaccin,date)
+VALUES
+  (191,"Melvin Hyde","Quinn Strickland","1994-07-20","V18 1XW","m","(340) 238-6682","Ap #826-983 Lobortis Rd.","libero.at@yahoo.com",12,6,"2021-06-01"),
+  (192,"Raven Smith","Katelyn Clemons","2000-02-14","2928","f","1-273-868-6144","Ap #169-4177 Egestas Av.","velit.justo@aol.couk",36,3,"2022-01-04"),
+  (193,"Genevieve Wall","Amena Guy","1995-03-27","585767","f","(720) 254-8285","P.O. Box 184, 1235 Ornare. Rd.","dui@icloud.edu",84,4,"2021-07-28"),
+  (194,"Ciaran Gay","Brynn Adkins","1994-09-14","p8H 0K3","f","1-130-203-5828","P.O. Box 906, 1273 Sed, Ave","purus.nullam@yahoo.ca",61,2,"2021-09-12"),
+  (195,"Stacey Morales","Jena James","1998-12-18","8777","f","1-442-828-1346","2637 Nunc St.","non.luctus@outlook.com",59,10,"2023-01-21"),
+  (196,"Jin Calderon","Chaney Holmes","1997-04-29","1168","m","1-428-482-1470","536-7401 Tellus Street","ut.tincidunt.vehicula@yahoo.ca",29,8,"2023-02-21"),
+  (197,"Selma Tucker","Galena Klein","1999-09-02","77416","m","1-723-578-7361","1656 Ornare St.","nunc.mauris.morbi@aol.couk",26,4,"2022-11-25"),
+  (198,"Carly Walls","Lee Neal","1996-12-15","48937-13407","f","1-380-600-4443","Ap #692-7012 Aenean Road","nunc.lectus@protonmail.com",86,4,"2022-04-08"),
+  (199,"Aline Johnson","Forrest Allen","1994-11-04","72274","f","(978) 634-7125","7994 Dictum Road","est.nunc@hotmail.org",75,10,"2022-05-18"),
+  (200,"Brenna Burnett","Chiquita Weeks","1994-09-19","58-177","m","(864) 229-4540","Ap #212-7906 Vitae Avenue","fringilla.purus@google.couk",66,6,"2021-07-24");
+
+
+
+
+
+
+
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (1,31,14),
+  (2,45,8),
+  (3,46,6),
+  (4,33,5),
+  (5,153,2),
+  (6,3,15),
+  (7,29,20),
+  (8,151,4),
+  (9,111,13),
+  (10,177,14);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (11,62,2),
+  (12,31,20),
+  (13,127,15),
+  (14,83,8),
+  (15,111,12),
+  (16,35,12),
+  (17,12,2),
+  (18,103,16),
+  (19,122,16),
+  (20,100,11);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (21,80,9),
+  (22,19,3),
+  (23,28,7),
+  (24,34,9),
+  (25,167,11),
+  (26,82,13),
+  (27,28,20),
+  (28,75,13),
+  (29,116,6),
+  (30,17,15);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (31,33,9),
+  (32,26,3),
+  (33,143,5),
+  (34,121,13),
+  (35,198,20),
+  (36,39,6),
+  (37,34,2),
+  (38,195,3),
+  (39,100,18),
+  (40,65,10);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (41,105,4),
+  (42,64,1),
+  (43,157,14),
+  (44,101,1),
+  (45,127,14),
+  (46,116,15),
+  (47,158,17),
+  (48,164,16),
+  (49,155,13),
+  (50,37,18);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (51,178,6),
+  (52,35,15),
+  (53,116,20),
+  (54,82,9),
+  (55,61,10),
+  (56,175,6),
+  (57,34,15),
+  (58,166,9),
+  (59,77,4),
+  (60,76,6);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (61,124,15),
+  (62,15,7),
+  (63,55,18),
+  (64,18,13),
+  (65,69,9),
+  (66,197,9),
+  (67,113,19),
+  (68,74,10),
+  (69,99,2),
+  (70,54,7);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (71,128,5),
+  (72,146,4),
+  (73,191,3),
+  (74,111,7),
+  (75,22,17),
+  (76,138,17),
+  (77,188,15),
+  (78,89,4),
+  (79,92,10),
+  (80,85,12);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (81,1,13),
+  (82,111,13),
+  (83,128,7),
+  (84,15,10),
+  (85,177,5),
+  (86,151,6),
+  (87,165,12),
+  (88,136,3),
+  (89,5,16),
+  (90,43,10);
+INSERT INTO ReservationMaladie (id,idReservation,idMaladieChronique)
+VALUES
+  (91,174,17),
+  (92,179,6),
+  (93,56,6),
+  (94,159,2),
+  (95,47,17),
+  (96,66,3),
+  (97,21,18),
+  (98,108,18),
+  (99,96,17),
+  (100,89,8);
