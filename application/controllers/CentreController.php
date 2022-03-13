@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reservation extends CI_Controller {
+class CentreController extends CI_Controller {
 
 }
