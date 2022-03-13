@@ -55,7 +55,14 @@ CREATE TABLE MaladieChronique(
 
 CREATE TABLE Resultat(
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idPersonne INTEGER,
+    idInfecte INTEGER,
+    date DATE,
+    resultat VARCHAR(20)
+);
+
+CREATE TABLE ResultatVaccination(
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idVaccination INTEGER,
     date DATE,
     resultat VARCHAR(20)
 );
@@ -86,23 +93,33 @@ ALTER TABLE ComposantVaccin ADD foreign key (idVaccin) references Vaccin(id);
 ALTER TABLE Infecte ADD foreign key (idPersonne) references Personne(id);
 ALTER TABLE ContreIndication ADD foreign key (idVaccin) references Vaccin(id);
 ALTER TABLE ContreIndication ADD foreign key (idMaladieChronique) references MaladieChronique(id);
-ALTER TABLE Resultat ADD foreign key (idPersonne) references Personne(id);
+ALTER TABLE Resultat ADD foreign key (idInfecte) references Infecte(id);
 ALTER TABLE VaccinCentre ADD foreign key (idCentre) references Centre(id);
 ALTER TABLE VaccinCentre ADD foreign key (idVaccin) references Vaccin(id);
 ALTER TABLE Reservation ADD foreign key (idCentre) references Centre(id);
 ALTER TABLE Reservation ADD foreign key (idVaccin) references Vaccin(id);
 
+ALTER TABLE ResultatVaccination ADD foreign key (idVaccination) references Vaccination(id);
+
+create or replace view nombreVaccine as select count(*) as nbr from Personne p join Vaccination v on v.idPersonne = p.id;
+
+create or replace view nombreParVaccin as
+select idVaccin,count(*) as nbr from Vaccin v left join Vaccination vn on v.id=idVaccin group by idVaccin;
+
+create or replace view nombreMararyVaccine as
+select idVaccin,count(*) as nbr from Infecte i join Vaccination v on v.idPersonne=i.idPersonne group by idVaccin;
+
+create or replace view nombreVaccineMaty as
+select idVaccin,count(*) as nbr from resultat r 
+join Infecte i on i.id=r.idInfecte 
+join Vaccination v on v.idPersonne=i.idPersonne
+where resultat='decede' and v.date<i.date
+group by idVaccin;
+
+create or replace view nombreGuerie as
+select count(*) as nbr from resultat r where resultat='guerie';
+
+create or replace view nombreDecede as 
+select count(*) as nbr from resultat r where resultat='decede';
 
 
-INSERT INTO MaladieChronique VALUES(NULL,'diabete');
-INSERT INTO MaladieChronique VALUES(NULL,'allergie');
-
-
-INSERT INTO Vaccin VALUES(NULL,'ASTRA-ZENECA','','');
-INSERT INTO Vaccin VALUES(NULL,'PFIZER','','');
-INSERT INTO Vaccin VALUES(NULL,'JANSSEN','','');
-
-
-INSERT INTO ContreIndication VALUES(NULL,1,1);
-INSERT INTO ContreIndication VALUES(NULL,1,2);
-INSERT INTO ContreIndication VALUES(NULL,2,1);
