@@ -113,12 +113,12 @@ create or replace view nombreVaccineMaty as
 select idVaccin,count(*) as nbr from resultat r 
 join Infecte i on i.id=r.idInfecte 
 join Vaccination v on v.idPersonne=i.idPersonne
-where resultat='decede' and v.date<i.date
+where resultat='mort' and v.date<i.date
 group by idVaccin;
 
 create or replace view nombreGuerie as
-select count(*) as nbr from resultat r where resultat='guerie';
+select count(*) as nbr from resultat r where resultat='gueris';
 
 create or replace view nombreDecede as 
-select count(*) as nbr from resultat r where resultat='decede';
+select count(*) as nbr from resultat r where resultat='mort';
 
