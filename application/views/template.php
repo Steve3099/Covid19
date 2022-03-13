@@ -67,6 +67,8 @@
                 </li>
                 <li> <a href="<?php echo base_url("VaccinController") ?>"> Proposition</a>
                 </li>
+                <li> <a href="<?php echo base_url("CentreController") ?>"><i class="fa fa-hospital"></i> Liste des centres</a>
+                </li>
               </ul>
             </div>
 
