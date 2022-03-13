@@ -152,7 +152,7 @@
 
       <!-- page content -->
       
-      <?php  include('stat.php'); ?>
+      <?php  include('reservation.php'); ?>
       <!-- /page content -->
 
       <!-- footer content -->
