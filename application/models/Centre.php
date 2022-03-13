@@ -2,7 +2,7 @@
 
 class Centre extends CI_Model
 {
-    public function getAllCentre()
+    public function getCentres()
     {
         $retour = array();
         $sql = "select * from Centre";
@@ -16,4 +16,3 @@ class Centre extends CI_Model
         return $retour;
     }
 }
-?>
