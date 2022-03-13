@@ -56,9 +56,11 @@
                           <div class="pricing_features">
                             <ul class="list-unstyled text-left">
                             <?php if(count($listeCentres[$i]['nomVaccin'])==0) { ?>
-                                
                                 <i class="fa fa-times text-danger"></i> Aucun vaccin disponible pour le moment
-                            <?php } ?>
+                            <?php }else { ?>
+                              <p>Liste des vaccins disponibles : </p>
+                              <hr>
+                            <?php }?>
                             <?php for($c=0;$c<count($listeCentres[$i]['nomVaccin']);$c++) { ?> 
                               <li><i class="fa fa-check text-success"></i><?php echo $listeCentres[$i]['nomVaccin'][$c]['nomVaccin'] ?></li>
                               <?php }?>
