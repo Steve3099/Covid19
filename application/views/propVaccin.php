@@ -24,10 +24,10 @@
                                     </div>
                                         <label class="col-form-label col-md-3 col-sm-3 label-align">Maladies:</label>
                                     <div class="form-group row">
-                                    <input type="hidden" value="aucun" name="maladie[]">
-                                            <?php foreach($maladie as $mal) { ?>
-                                                <input type="checkbox" class="flat" name="maladie[]" value="<?php echo $mal['id']; ?>"><label ><?php echo $mal['label']; ?></label>
-                                            <?php } ?>
+                                        <input type="hidden" value="aucun" name="maladie[]">
+                                        <?php foreach($maladie as $mal) { ?>
+                                            <input type="checkbox" class="flat" name="maladie[]" value="<?php echo $mal['id']; ?>"><label ><?php echo $mal['label']; ?></label>
+                                        <?php } ?>
                                     </div>
                                     <div class="form-group row">
                                         <button class="form-control" type="submit">Valider</button>

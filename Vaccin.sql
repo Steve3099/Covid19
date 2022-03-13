@@ -1811,19 +1811,18 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `nombrevaccine`;
 
-DROP VIEW IF EXISTS `nombrevaccine`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `nombrevaccine`  AS  select count(0) AS `nbr` from (`personne` `p` join `vaccination` `v` on((`v`.`idPersonne` = `p`.`id`))) ;
+create or replace view nombreVaccineMaty as
+select idVaccin,count(*) as nbr from resultat r 
+join Infecte i on i.id=r.idInfecte 
+join Vaccination v on v.idPersonne=i.idPersonne
+where resultat='mort' and v.date<i.date
+group by idVaccin;
 
--- --------------------------------------------------------
+create or replace view nombreGuerie as
+select count(*) as nbr from resultat r where resultat='gueris';
 
---
--- Structure de la vue `nombrevaccinematy`
---
-DROP TABLE IF EXISTS `nombrevaccinematy`;
-
-DROP VIEW IF EXISTS `nombrevaccinematy`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `nombrevaccinematy`  AS  select `v`.`idVaccin` AS `idVaccin`,count(0) AS `nbr` from ((`resultat` `r` join `infecte` `i` on((`i`.`id` = `r`.`idInfecte`))) join `vaccination` `v` on((`v`.`idPersonne` = `i`.`idPersonne`))) where ((`r`.`resultat` = 'mort') and (`v`.`date` < `i`.`date`)) group by `v`.`idVaccin` ;
-COMMIT;
+create or replace view nombreDecede as 
+select count(*) as nbr from resultat r where resultat='mort';
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
