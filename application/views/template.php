@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include($view); ?>
+    <?php include('echart.html'); ?>
 </body>
 </html>

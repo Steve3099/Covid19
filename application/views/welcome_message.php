@@ -155,7 +155,7 @@
 
       <!-- page content -->
       
-      <?php  include('stat.php'); ?>
+      <?php  include($view); ?>
       <!-- /page content -->
 
       <!-- footer content -->

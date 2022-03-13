@@ -122,4 +122,3 @@ select count(*) as nbr from resultat r where resultat='guerie';
 create or replace view nombreDecede as 
 select count(*) as nbr from resultat r where resultat='decede';
 
-
