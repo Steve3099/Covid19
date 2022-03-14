@@ -69,6 +69,8 @@
                 </li>
                 <li> <a href="<?php echo base_url("CentreController") ?>"><i class="fa fa-university"></i> Liste des centres</a>
                 </li>
+                <li> <a href="<?php echo base_url("ArticleController") ?>"><i class="fa fa-newspaper-o"></i> Nouvelles</a>
+                </li>
               </ul>
             </div>
 
