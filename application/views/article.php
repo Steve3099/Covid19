@@ -37,7 +37,18 @@
                                               <a><?php echo $ar['titre'] ?></a>
                                           </h2>
                               <div class="byline">
-                                <span>13 hours ago</span> by <a>Jane Smith</a>
+                                <span>
+                                <?php 
+                                  $r = strtotime(date("Y-m-d")) - strtotime($ar['date']);
+                                  $r = floor($r/ (365 * 60 * 60 * 24));
+                                  if($r!=0){
+                                      echo "il y a ".$r." ans";
+                                    } 
+                                    else
+                                    {
+                                      echo "cette année";
+                                    }
+                                ?></span>
                               </div>
                               <p class="excerpt"><?php echo $ar['texte'] ?>
                               </p>

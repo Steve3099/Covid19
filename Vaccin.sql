@@ -143,6 +143,22 @@ INSERT INTO `article` (`id`, `titre`, `texte`, `image`, `date`) VALUES
 (99, 'Sindh', 'ac nulla', NULL, '1999-07-16'),
 (100, 'Huabei', 'id ante dictum cursus Nunc mauris elit,', NULL, '1998-08-10');
 
+
+
+INSERT INTO `article` (`id`, `titre`, `texte`, `image`, `date`) VALUES
+(NULL, 'Le vaccin de Pfizer-BioNTech (BNT162b2) contre la COVID-19 : ce qu’il faut savoir',
+ 'Le Groupe stratégique consultatif d’experts (SAGE) sur la vaccination de l’OMS a publié des recommandations provisoires sur l’utilisation du vaccin Pfizer/BioNTech (BNT162b2) contre la COVID-19. Cet article présente un résumé de ces recommandations provisoires ; le document d’orientation peut être consulté ici (dernière mise à jour en anglais, 21 janvier 2022).
+
+Voici ce qu’il faut savoir.
+
+D’après le SAGE, le vaccin à ARNm Pfizer/BioNTech contre la COVID-19 est sûr et efficace. La priorité est d’abord de vacciner les soignants fortement exposés, puis les personnes âgées, avant de passer au reste de la population.', 'covid1.jpg', '2022-03-10'),
+(NULL, 'Coronavirus : Positif au Covid-19, Barack Obama assure se sentir « bien »', 
+  'Barack Obama a annoncé dimanche avoir été testé positif au Covid-19 après de légers symptômes. L’ancien président américain assure toutefois se sentir « bien ».
+
+« J’ai eu la gorge rugueuse pendant quelques jours, mais sinon je me sens bien », a-t-il indiqué sur son compte Twitter. Sa femme Michelle Obama a reçu un test négatif, précise-t-il.', 'covid2.jpg', '2022-02-09'),
+(NULL, 'CIM Santé publique', 'Suite aux décisions du Comité de Concertation du 4 mars, la CIM Santé publique a également affiné la stratégie de testing, d’isolement et de quarantaine en fonction de la situation épidémiologique actuelle. Pour cela, la CIM a également approuvé un schéma global qui permettra d’activer plus rapidement cette stratégie à l’avenir, ce qui permettra de contenir plus rapidement la circulation du virus. En outre, la CIM a approuvé cinq scénarios pour une future stratégie de vaccination en 2022. Les décisions de la CIM concernant la stratégie de testing, d’isolement et de quarantaine, ainsi que la stratégie de vaccination, sont fondées sur les avis respectifs du Risk Assessment Group (RAG) et du Risk Management Group, ainsi que de la Taskforce Vaccination.', 'covid3.jpg', '2022-01-08'),
+(NULL, 'COVID FRANCE', 'Le coronavirus est une famille de virus dont un nouveau genre a sévi depuis fin 2019 en Chine, avant de provoquer une pandémie mondiale. La maladie Covid-19 est d\'abord apparue à Wuhan, puis s\'est propagée dans le monde. En Europe, l\'Italie et l\'Espagne ont été les premiers pays touchés, avant que l\'ensemble du continent le soit également.', 'covid4.jpg', '2022-03-07');
+
 -- --------------------------------------------------------
 
 --
