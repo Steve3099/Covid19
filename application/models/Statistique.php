@@ -35,7 +35,7 @@ class Statistique extends CI_Model
     }
 
     public function getNombreMararyVaccine(){
-        $sql = "SELECT * FROM nombreMararyVaccine join Vaccin v on v.id=idVaccin";
+        $sql = "SELECT * FROM nombreMararyVaccine join Vaccin v on v.id=idVaccin order by nbr DESC";
         $query = $this->db->query($sql);
         $val = array();
         $i = 0;
