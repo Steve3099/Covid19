@@ -37,17 +37,17 @@
                         <form class="form-label-left input_mask" method="post" action="<?php echo base_url("ReservationController/insertReservation") ?>">
 
                             <div class="col-md-6 col-sm-6  form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" name="nom" placeholder="Nom " value="nom">
+                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" name="nom" placeholder="Nom " value="RAKOTO">
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
                             <div class="col-md-6 col-sm-6  form-group has-feedback">
-                                <input type="text" class="form-control" id="inputSuccess3" name="prenom" placeholder="Prenom" value="prenom">
+                                <input type="text" class="form-control" id="inputSuccess3" name="prenom" placeholder="Prenom" value="Jean">
                                 <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                             </div>
 
                             <div class="col-md-6 col-sm-6  form-group has-feedback">
-                                <input type="email" class="form-control has-feedback-left" name="email" id="inputSuccess4" placeholder="Email" value="princia@yahoo.com">
+                                <input type="email" class="form-control has-feedback-left" name="email" id="inputSuccess4" placeholder="Email" value="Jean@gmail.com">
                                 <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                             </div>
 
@@ -60,7 +60,7 @@
                                 <label class="col-form-label col-md-3 col-sm-3 ">Date de Naissance <span class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy" name="dateNaissance" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <input class="date-picker form-control" placeholder="dd-mm-yyyy"  value="09/01/1997" name="dateNaissance" type="text">
                                     <script>
                                         function timeFunctionLong(input) {
                                             setTimeout(function() {
@@ -73,14 +73,14 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-md-3 col-sm-3">Sexe</label>
                                 <div class="col-md-6 col-sm-6 ">
-                                    <label> <input type="radio" class="flat" name="sexe" value="H">Homme</label>
+                                    <label> <input type="radio" class="flat" name="sexe" value="H" checked>Homme</label>
                                     <label><input type="radio" class="flat" name="sexe" value="F">Femme</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-md-3 col-sm-3 ">CIN</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" name="cin" placeholder="CIN" data-inputmask=" 'mask' : '(999) 999-9999' " value="1234556676">
+                                    <input type="text" class="form-control" name="cin" placeholder="CIN" data-inputmask=" 'mask' : '(999) 999-9999' " value="10123455667611">
                                     <span class=" fa fa-user form-control-feedback right" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-md-3 col-sm-3 ">Adresse</label>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" name="adresse" placeholder="Adresse" value="adresse">
+                                    <input type="text" class="form-control" name="adresse" placeholder="Adresse" value="IIP 124 Bis">
                                 </div>
                             </div>
 

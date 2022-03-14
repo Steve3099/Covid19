@@ -22,9 +22,8 @@
         </div>
     </div>
     <!-- /top tiles -->
-
-    <div style="width:500px">
-        <canvas id="myChart" width="400" height="400"></canvas>
+    <div>
+        <canvas id="myChart" width="900" height="400"></canvas>
         </div>
     <br />
 
@@ -65,7 +64,7 @@ const val = [];
     <div class="row">
 
 
-        <div class="col-md-4 col-sm-4 ">
+        <div class="col-md-6 col-sm-4 ">
             <div class="x_panel tile fixed_height_320">
               <div class="x_title">
                 <h2>Statistique Vaccin</h2>
@@ -108,7 +107,7 @@ const val = [];
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-4 ">
+        <div class="col-md-6 col-sm-4 ">
             <div class="x_panel tile fixed_height_320 overflow_hidden">
                 <div class="x_title">
                     <h2>Device Usage</h2>
