@@ -24,20 +24,20 @@ $centre[]='HJRA';
 
 if ($text == "") {
     // This is the first request. Note how we start the response with CON
-    $response  = "Bienvenue, comment peut-on vous aider \n";
+    $response  = "CON Bienvenue, comment peut-on vous aider \n";
     $response .= "1. Statistique \n";
     $response .= "2. se faire vacciner";
 
  } else if ($text == "1") {
     // Business logic for first level response
-    $response = " nombre de vaccinne 300 \n";
+    $response = "END nombre de vaccinne 300 \n";
     $response .= "nombre de guerie 15 \n";
     $response .= "nombre de mort 16 \n";
 
 } else if ($text == "2") {
     // Business logic for first level response
     // This is a terminal request. Note how we start the response with END
-	$response = " liste des vaccins disponible \n";
+	$response = "CON liste des vaccins disponible \n";
 	for($i=0;$i<count($vaccin);$i++){
 		$response .= "".($i+1).".".$vaccin[$i]."\n";
 	}
@@ -52,7 +52,7 @@ if ($text == "") {
     $accountNumber  = "ACC1001";
 
     // This is a terminal request. Note how we start the response with END
-    $response = "les centre fournissant le vaccin ".$vaccin[$vac]." \n";
+    $response = "CON les centre fournissant le vaccin ".$vaccin[$vac]." \n";
 	for($i=0;$i<count($centre);$i++){
 		$response .= "".($i+1).".".$centre[$i]."\n";
 	}
@@ -64,7 +64,7 @@ if ($text == "") {
 }else if(count($text) == 5){
 	$vac = explode(".",$test)[1]-1;
 	$cen= explode("*",$text)[2]-1;
-	$response = "vous avez fait une reservation pour le vaccin ".$vaccin[$vac]." dans le centre ".$centre[$cen]." \n";
+	$response = "END vous avez fait une reservation pour le vaccin ".$vaccin[$vac]." dans le centre ".$centre[$cen]." \n";
 }
 
 // // Echo the response back to the API
