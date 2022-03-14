@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class UssdController extends CI_Controller {
 
     public function index(){
-        $sessionId   = $this->input->post('sessionId');
+        /*$sessionId   = $this->input->post('sessionId');
         $serviceCode = $this->input->post('serviceCode');
         $phoneNumber = $this->input->post('phoneNumber');
         $text        = $this->input->post('text');
@@ -36,7 +36,7 @@ class UssdController extends CI_Controller {
 
         // Echo the response back to the API
         header('Content-type: text/plain');
-        echo $response;
+        echo $response;*/
     }
 
 }
