@@ -151,7 +151,14 @@
 
                                 </div>
                                 <div class="col-md-9 col-sm-9 ">
-                                    <h5 style="color:red"><?php if (isset($message)) echo $message ?> </h5>
+                                    <?php 
+                                    if (isset($message)) {
+                                        if ($message[0] == 'D') { ?>
+                                            <h5 style="color:red"><?php echo $message ?> </h5>
+                                        <?php  } else { ?>
+                                            <h5 style="color:green"><?php echo $message ?></h5>
+                                    <?php }
+                                    }  ?>
                                 </div>
                             </div>
                             <div class="ln_solid"></div>
