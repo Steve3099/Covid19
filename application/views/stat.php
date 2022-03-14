@@ -1,111 +1,66 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="right_col" role="main">
     <!-- top tiles -->
-    <div class="row" style="display: inline-block;">
+    <div class="row" style="display: inline;">
         <div class="tile_count">
-            <div class="col-md-2 col-sm-4  tile_stats_count">
+            <div class="col-md-4 col-sm-4  tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Vaccinées</span>
               <div class="count"><?php echo $vaccine[0]['nbr']; ?></div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+              
             </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
+            <div class="col-md-4 col-sm-4  tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Total des morts</span>
               <div class="count red"><?php echo $decede[0]['nbr']; ?></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+             
             </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
+            <div class="col-md-4 col-sm-4  tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total des guerie</span>
               <div class="count green"><?php echo $guerie[0]['nbr']; ?></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+              
             </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Vaccinés mort</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-                <div class="count">2,315</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4  tile_stats_count">
-                <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-                <div class="count">7,325</div>
-                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
+            
         </div>
     </div>
     <!-- /top tiles -->
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 ">
-            <div class="dashboard_graph">
-
-                <div class="row x_title">
-                    <div class="col-md-6">
-                        <h3>Network Activities <small>Graph title sub-title</small></h3>
-                    </div>
-                    <div class="col-md-6">
-                        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 col-sm-9 ">
-                    <div id="chart_plot_01" class="demo-placeholder"></div>
-                </div>
-                <div class="col-md-3 col-sm-3  bg-white">
-                    <div class="x_title">
-                        <h2>Top Campaign Performance</h2>
-                        <div class="clearfix"></div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12 ">
-                        <div>
-                            <p>Facebook Campaign</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 76%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Twitter Campaign</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 76%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12 ">
-                        <div>
-                            <p>Conventional Media</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 76%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <p>Bill boards</p>
-                            <div class="">
-                                <div class="progress progress_sm" style="width: 76%;">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="clearfix"></div>
-            </div>
+    <div style="width:500px">
+        <canvas id="myChart" width="400" height="400"></canvas>
         </div>
-
-    </div>
     <br />
+
+    <script>
+
+const tab = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+
+const val = [];
+
+<?php foreach($vacParMois as $el){ ?>
+    val.push(<?php echo $el['nbr']; ?>)
+ <?php } ?>
+      
+        const data = {
+          labels: tab,
+          datasets: [{
+            label: 'Nombre de Vaccination Par Mois',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: val,
+          }]
+        };
+      
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+</script>
+<script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+
 
     <div class="row">
 
@@ -113,7 +68,7 @@
         <div class="col-md-4 col-sm-4 ">
             <div class="x_panel tile fixed_height_320">
               <div class="x_title">
-                <h2>App Versions</h2>
+                <h2>Statistique Vaccin</h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -130,7 +85,7 @@
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
-                <h4>App Usage across versions</h4>
+                <h4>Nombre d'Infectes par Nom de Vaccin</h4>
                 <?php for($i=0;$i<count($vacMarary);$i++) { ?>
                 <div class="widget_summary">
                   <div class="w_left w_25">
@@ -197,13 +152,13 @@
                                         <td>
                                             <p><i class="fa fa-square blue"></i>IOS </p>
                                         </td>
-                                        <td>30%</td>
+                                        <td>75%</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <p><i class="fa fa-square green"></i>Android </p>
                                         </td>
-                                        <td>10%</td>
+                                        <td>4%</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -230,34 +185,7 @@
                 </div>
             </div>
         </div>
-
-
-          <div class="col-md-4 col-sm-4 ">
-          <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Pyramid</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div id="echart_pyramid" style="min-height:200px;"></div>
-                  
-                  </div>
-                </div>
-          </div>
+    
 
         </div>
 

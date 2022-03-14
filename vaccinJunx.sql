@@ -145,6 +145,14 @@ create or replace view nombreDecede as
 select count(*) as nbr from resultat r where resultat='decede';
 
 
+create or replace view vaccinationParMois as
+SELECT month(date),count(*) as nbr FROM vaccination group by month(date) order by month(date);
+
+create or replace view nombreParResultat as
+SELECT resultat,count(*) as nb FROM `resultatvaccination` group by resultat;
+
+
+
 
 
 

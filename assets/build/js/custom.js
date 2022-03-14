@@ -690,14 +690,14 @@ function init_chart_doughnut() {
             tooltipFillColor: "rgba(51, 51, 51, 0.55)",
             data: {
                 labels: [
-                    "Symbian",
+                    "Joharisoa",
                     "Blackberry",
                     "Other",
                     "Android",
                     "IOS"
                 ],
                 datasets: [{
-                    data: [15, 20, 30, 10, 30],
+                    data: [1, 2, 3, 4, 5],
                     backgroundColor: [
                         "#BDC3C7",
                         "#9B59B6",
@@ -2219,7 +2219,7 @@ function init_charts() {
                 "Blue Color"
             ],
             datasets: [{
-                data: [120, 50, 140, 180, 100],
+                data: [],
                 backgroundColor: [
                     "#455C73",
                     "#9B59B6",

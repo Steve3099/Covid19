@@ -35,7 +35,7 @@ class Statistique extends CI_Model
     }
 
     public function getNombreMararyVaccine(){
-        $sql = "SELECT * FROM nombreMararyVaccine join Vaccin v on v.id=idVaccin";
+        $sql = "SELECT * FROM nombreMararyVaccine join Vaccin v on v.id=idVaccin order by nbr desc";
         $query = $this->db->query($sql);
         $val = array();
         $i = 0;
@@ -82,6 +82,21 @@ class Statistique extends CI_Model
     }
     public function getNombreDecede(){
         $sql = "SELECT * FROM nombreDecede";
+        $query = $this->db->query($sql);
+        $val = array();
+        $i = 0;
+        foreach($query -> result_array() as $row)
+        {
+            foreach($row as $key => $value)
+            {
+                $val[$i][$key] = $value;  
+            }
+            $i++;
+        }
+        return $val;
+    }
+    public function getNombreVaccinParMois(){
+        $sql = "SELECT * FROM vaccinationParMois";
         $query = $this->db->query($sql);
         $val = array();
         $i = 0;
