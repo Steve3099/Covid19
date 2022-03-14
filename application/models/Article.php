@@ -3,7 +3,7 @@
 class Article extends CI_Model
 {
     public function getAllArticle(){
-        $sql = "SELECT * FROM article";
+        $sql = "SELECT * FROM article order by date desc ";
         $query = $this->db->query($sql);
         $val = array();
         $i = 0;

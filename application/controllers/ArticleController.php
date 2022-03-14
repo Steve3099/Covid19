@@ -5,7 +5,10 @@ class ArticleController extends CI_Controller {
 
     public function index(){
         $this->load->model('Article');
-        var_dump($this->Article->getAllArticle());
+      //  var_dump($this->Article->getAllArticle());
+        $data['article']=$this->Article->getAllArticle();
+        $data['view'] = "article";
+        $this->load->view("template",$data);
     }
 
     public function insert(){

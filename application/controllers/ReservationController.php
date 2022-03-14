@@ -44,7 +44,6 @@ class ReservationController extends CI_Controller
             $idReservation = $this->reservation->getLastReservation();
             $this->maladiechronique->insert($idReservation, $idMaladies);
         }
-
         var_dump($idMaladies[0]);
         // $this->reservation->insertReservation($nom,$prenom,$email,$numero,$dateNaissance,$sexe,$cin,$adresse,$idCentre,$idVaccin,$date,$heure);
 
