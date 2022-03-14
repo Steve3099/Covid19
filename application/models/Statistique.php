@@ -111,5 +111,21 @@ class Statistique extends CI_Model
         return $val;
     }
 
+    public function getNombreResultatVaccination(){
+        $sql = "SELECT * FROM nombreParResultat";
+        $query = $this->db->query($sql);
+        $val = array();
+        $i = 0;
+        foreach($query -> result_array() as $row)
+        {
+            foreach($row as $key => $value)
+            {
+                $val[$i][$key] = $value;  
+            }
+            $i++;
+        }
+        return $val;
+    }
+
 }
 ?>
