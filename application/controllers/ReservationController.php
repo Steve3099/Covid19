@@ -5,19 +5,15 @@ class ReservationController extends CI_Controller
 {
     public function index()
     {
-        $this->load->model('centre');
-        $this->load->model('vaccin');
-        $this->load->model('maladiechronique');
-        $data["centres"] = $this->centre->getCentres();
-        $data["vaccins"] = $this->vaccin->getAllVaccin();
-        $data["maladies"] = $this->maladiechronique->getAllMaladie();
-
+        $data["centres"] = $this->Centre->getCentres();
+        $data["vaccins"] = $this->Vaccin->getAllVaccin();
+        $data["maladies"] = $this->MaladieChronique->getAllMaladie();
         $data["view"] = "reservation";
-
         $this->load->view('template', $data);
     }
     public function insertReservation()
     {
+        
         $this->load->model('reservation');
         $this->load->model('maladiechronique');
 
@@ -30,23 +26,24 @@ class ReservationController extends CI_Controller
         $cin = $this->input->post('cin');
         $adresse = $this->input->post('adresse');
         $idCentre = $this->input->post('idCentre');
-        $idVaccin = $this->input->post('idVaccinn');
+        $idVaccin = $this->input->post('idVaccin');
         $date = $this->input->post('dateVaccin');
-
-        $heure = $this->reservation->getHeureDisponible($date, $idCentre);
-
-
         $idMaladies = $this->input->post('idMaladies');
-        if ($idMaladies[0] == 'aucun') {
-            // $this->reservation->insertReservation($nom,$prenom,$email,$numero,$dateNaissance,$sexe,$cin,$adresse,$idCentre,$idVaccin,$date,$heure);
-        } else {
-            $this->reservation->insertReservation($nom, $prenom, $email, $numero, $dateNaissance, $sexe, $cin, $adresse, $idCentre, $idVaccin, $date, $heure);
-            $idReservation = $this->reservation->getLastReservation();
-            $this->maladiechronique->insert($idReservation, $idMaladies);
-        }
 
-        var_dump($idMaladies[0]);
-        // $this->reservation->insertReservation($nom,$prenom,$email,$numero,$dateNaissance,$sexe,$cin,$adresse,$idCentre,$idVaccin,$date,$heure);
 
+
+        $result = $this->reservation->ajoutReservation($nom, $prenom, $email, $numero, $dateNaissance, $sexe, $cin, $adresse, $idCentre, $idVaccin, $date, "");
+       
+        $data["centres"] = $this->Centre->getCentres();
+        $data["vaccins"] = $this->Vaccin->getAllVaccin();
+        $data["maladies"] = $this->MaladieChronique->getAllMaladie();
+        $data["message"] = $result;
+        $data["view"] = "reservation";
+        $this->load->view('template', $data);
+    }
+
+    public function test()
+    {
+        $max = $this->reservation->getHeureDisponible("2021-08-24", 1);
     }
 }
