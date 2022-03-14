@@ -12,27 +12,50 @@
                     </div>
                     <div class="x_content">
                     <!-- Smart Wizard -->
-                    <p>Nous vous suggérons des vaccins correspondants à vos informations.</p>
+                    
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                    <h6>Nous vous suggérons des vaccins correspondants à vos maladies chroniques  . 
+                        Pour mieux vous aider a choisir les vaccins qui vous sont compatibles , 
+                        pour mieu prevenir les risques de complications .   </h6>
+                        <br>
+                        <hr>
+                        <br>
                         <div id="wizard" class="form_wizard wizard_horizontal">
                             <div id="step-1">
                                 <form class="form-horizontal form-label-left" style="font-size:16px;" action="<?php  echo base_url("VaccinController/getResultProp") ?>" method="post">
                                     <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" >Age: </label>
-                                        <div class="col-md-2 col-sm-2 ">
-                                              <input type="number" class="form-control" name="age" required>
+                                        <label class="col-md-3 col-sm-3  control-label">Age
+                                            <br>
+                                            <small class="text-navy">(Veuillez entrez votre age )</small>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 ">
+                                            <label>
+                                                <input type="number" class="form-control" name="age" required>
+                                            </label>
+                                            
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Maladies:</label>
-                                        <div>
+                                        <label class="col-md-3 col-sm-3  control-label">Maladies
+                                            <br>
+                                            <small class="text-navy">(Selectioner si vous avez ces maladies)</small>
+                                        </label>
+
+                                        <div class="col-md-9 col-sm-9 ">
+                                            <div class="checkbox">
                                             <input type="hidden" value="aucun" name="maladie[]">
                                                 <?php foreach($maladie as $mal) { ?>
-                                                    <input type="checkbox" class="flat" name="maladie[]" value="<?php echo $mal['id']; ?>"><label ><?php echo $mal['label']; ?></label>
-                                                <?php } ?>
-                                        </div>   
+                                                    <label>    
+                                                        <input type="checkbox" class="flat" name="maladie[]" value="<?php echo $mal['id']; ?>"><label >  <?php echo "   ". $mal['label'] ; ?></label>
+                                                    </label>
+                                                    <?php } ?>
+                                            </div>
+
+                                        </div>
                                     </div>
                                     <div class="form-group row">
-                                        <button class="form-control" type="submit">Valider</button>
+                                        <button class="form-control btn-secondary" type="submit">Valider</button>
                                     </div>
                                 </form>
                                 <?php if(isset($retour)) { 
@@ -42,12 +65,15 @@
                                     <p>Liste des vaccins proposés: </p>
                                    
                                         <?php foreach($result as $res) { ?>
-                                            <li><?php echo $res['vaccin'] ?> <a style="color:red;"><?php echo $res['message'] ?></a></li>
+                                            <li><span ><?php echo $res['vaccin'] ?></span> <a style="color:red;"><?php echo $res['message'] ?></a></li>
                                         <?php } ?>
                                     </ul>
                                 <?php } } ?>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                    
                     </div>
                 </div>
             </div>
