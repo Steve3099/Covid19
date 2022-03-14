@@ -39,14 +39,14 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
 	$response = " liste des vaccins disponible \n";
 	for($i=0;$i<count($vaccin);$i++){
-		$response .= "".$i+1.".".$vaccin[$i]."\n";
+		$response .= "".($i+1).".".$vaccin[$i]."\n";
 	}
     // $response = "1. Astrazeneca \n";
     // $response .= "2. coviShield  \n";
     // $response .= "3. janssen \n";
     // $response .= "4. pfizer  \n";
 
-} else if($text == "2*1" || $text == "2*2" || $text == "2*3" || || $text == "2*4") { 
+} else if($text == "2*1" || $text == "2*2" || $text == "2*3" || $text == "2*4") { 
 	$vac = explode(".",$test)[1];
     // This is a second level response where the user selected 1 in the first instance
     $accountNumber  = "ACC1001";
@@ -54,7 +54,7 @@ if ($text == "") {
     // This is a terminal request. Note how we start the response with END
     $response = "les centre fournissant le vaccin ".$vaccin[$vac]." \n";
 	for($i=0;$i<count($centre);$i++){
-		$response .= "".$i+1.".".$centre[$i]."\n";
+		$response .= "".($i+1).".".$centre[$i]."\n";
 	}
 	// $response = "1. stade Mahamasina \n";
     // $response .= "2. institut pasteur \n";
