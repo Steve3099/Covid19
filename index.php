@@ -47,7 +47,7 @@ if ($text == "") {
     // $response .= "4. pfizer  \n";
 
 } else if($text == "2*1" || $text == "2*2" || $text == "2*3" || $text == "2*4") { 
-	$vac = explode(".",$test)[1];
+	$vac = explode("*",$test)[1];
     // This is a second level response where the user selected 1 in the first instance
     $accountNumber  = "ACC1001";
 
@@ -62,7 +62,7 @@ if ($text == "") {
     // $response .= "5. HJRA \n";
 
 }else if(count($text) == 5){
-	$vac = explode(".",$test)[1]-1;
+	$vac = explode("*",$test)[1]-1;
 	$cen= explode("*",$text)[2]-1;
 	$response = "END vous avez fait une reservation pour le vaccin ".$vaccin[$vac]." dans le centre ".$centre[$cen]." \n";
 }
